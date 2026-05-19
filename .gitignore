@@ -1,0 +1,10 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor swap/backup
+*.swp
+*~
+
+# Backups created by bootstrap.sh
+*.backup.*
