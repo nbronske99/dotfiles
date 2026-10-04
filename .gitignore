@@ -8,3 +8,6 @@ Thumbs.db
 
 # Backups created by bootstrap.sh
 *.backup.*
+
+# Machine-specific shim managed by ~/Projects/ml-env (absent on other machines)
+config/nvim/lua/plugins/ml_lab.lua
