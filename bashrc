@@ -122,5 +122,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.local/bin:$PATH"
 
 # OpenClaw Completion
-source "/home/nickbronske/.openclaw/completions/openclaw.bash"
+[ -f "$HOME/.openclaw/completions/openclaw.bash" ] && source "$HOME/.openclaw/completions/openclaw.bash"
 

@@ -1,0 +1,9 @@
+// Outside the editor (terminal, explorer, panels) C-h/j/k/l move focus,
+// matching vim-tmux-navigator. Inside the editor nvim handles them.
+[
+    { "key": "ctrl+h", "command": "workbench.action.navigateLeft", "when": "terminalFocus || sideBarFocus || panelFocus" },
+    { "key": "ctrl+j", "command": "workbench.action.navigateDown", "when": "terminalFocus || sideBarFocus || panelFocus" },
+    { "key": "ctrl+k", "command": "workbench.action.navigateUp", "when": "terminalFocus || sideBarFocus || panelFocus" },
+    { "key": "ctrl+l", "command": "workbench.action.navigateRight", "when": "terminalFocus || sideBarFocus || panelFocus" },
+    { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" }
+]

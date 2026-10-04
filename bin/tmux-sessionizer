@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Fuzzy-pick a project directory and switch to (or create) a tmux session for it.
+# Usage: tmux-sessionizer [dir]    (bound to prefix f in tmux.conf)
+set -euo pipefail
+
+roots=("$HOME/Projects" "$HOME/Projects/school" "$HOME/dotfiles")
+
+if [[ $# -eq 1 ]]; then
+    selected="$1"
+else
+    selected="$(find "${roots[@]}" -mindepth 1 -maxdepth 1 -type d ! -name '.*' 2>/dev/null \
+        | sort -u | fzf --prompt='project> ' --height=100% --reverse)" || exit 0
+fi
+[[ -z "$selected" ]] && exit 0
+
+name="$(basename "$selected" | tr '.:' '__')"
+
+if ! tmux has-session -t="$name" 2>/dev/null; then
+    tmux new-session -ds "$name" -c "$selected"
+fi
+
+if [[ -n "${TMUX:-}" ]]; then
+    tmux switch-client -t "$name"
+else
+    tmux attach-session -t "$name"
+fi

@@ -1,0 +1,5 @@
+asvetliakov.vscode-neovim
+llvm-vs-code-extensions.vscode-clangd
+ms-vscode.cpptools
+anthropic.claude-code
+enkia.tokyo-night
